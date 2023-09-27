@@ -1,4 +1,7 @@
 import * as dotenv from "dotenv";
+import { ConnectOptions, ConnectionOptions, DataSource } from "typeorm";
+import { MysqlConnectionOptions } from "typeorm/driver/mysql/MysqlConnectionOptions";
+import { AppDataSource } from "./data.source";
 
 export abstract class configServer {
   constructor() {
@@ -28,5 +31,9 @@ export abstract class configServer {
       arrEnv.unshift(...stringToArray);
     }
     return "." + arrEnv.join(".");
+  }
+
+  get initConnect(): Promise<DataSource> {
+    return AppDataSource.initialize();
   }
 }
