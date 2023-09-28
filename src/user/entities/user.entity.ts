@@ -1,10 +1,10 @@
 import { Column, Entity } from "typeorm";
-import { BaseEntity } from "../config/base.entity";
+import { BaseEntity } from "../../config/base.entity";
 
 @Entity()
 export class User extends BaseEntity {
 
-  @Column('varchar', { length: 300 })
+  @Column('varchar', { length: 256 })
   username!: string;
 
   @Column()
