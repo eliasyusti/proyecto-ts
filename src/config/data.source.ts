@@ -1,7 +1,7 @@
 import { DataSource, DataSourceOptions } from "typeorm";
 import * as dotenv from "dotenv";
 import { SnakeNamingStrategy } from "typeorm-naming-strategies";
-import { User } from "../entities/user.entity"
+import { User } from "../user/entities/user.entity"
 
 dotenv.config({
   path:
