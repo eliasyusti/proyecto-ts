@@ -2,10 +2,10 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { userRouter } from "./router/user.router";
-import { configServer } from "./config/config";
+import { ConfigServer } from "./config/config";
 import { DataSource } from "typeorm";
 
-class Server extends configServer {
+class Server extends ConfigServer {
   public app: express.Application = express();
   private port: number = this.getNumberEnv("PORT");
 
@@ -25,7 +25,7 @@ class Server extends configServer {
   }
 
   async dbConnect(): Promise<DataSource | void> {
-    return this.initConnect
+    await this.initConnect
       .then(() => {
         console.log("Connect Success");
       })

@@ -1,9 +1,8 @@
 import * as dotenv from "dotenv";
-import { ConnectOptions, ConnectionOptions, DataSource } from "typeorm";
-import { MysqlConnectionOptions } from "typeorm/driver/mysql/MysqlConnectionOptions";
+import { DataSource } from "typeorm";
 import { AppDataSource } from "./data.source";
 
-export abstract class configServer {
+export abstract class ConfigServer {
   constructor() {
     const nodeNameEnv = this.createPathEnv(this.nodeEnv);
     dotenv.config({
