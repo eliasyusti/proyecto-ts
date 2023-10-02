@@ -1,8 +1,9 @@
-import { Column, Entity } from "typeorm";
+import { Column, Entity, OneToOne } from "typeorm";
 import { BaseEntity } from "../../config/base.entity";
+import { CustomerEntity } from "../../customer/entities/customer.entity";
 
 @Entity()
-export class User extends BaseEntity {
+export class UserEntity extends BaseEntity {
 
   @Column('varchar', { length: 256 })
   username!: string;
@@ -17,8 +18,15 @@ export class User extends BaseEntity {
   email!: string;
 
   @Column()
+  password!: Number;
+
+  @Column()
   city!: string;
 
   @Column()
-  numberPhone!: Number;
+  province!: Number;
+
+  @OneToOne(() => CustomerEntity, (customer) => customer.user)
+  customer!: CustomerEntity;
+
 }
