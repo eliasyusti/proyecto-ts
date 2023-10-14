@@ -2,6 +2,11 @@ import express from "express";
 import morgan from "morgan";
 import cors from "cors";
 import { userRouter } from "./user/user.router";
+import { PurchaseRouter } from "./purchase/purchase.router";
+import { ProductRouter } from "./product/product.router";
+import { CustomerRouter } from "./customer/customer.router";
+import { CategoryRouter } from "./category/category.router";
+import { PurchaseProductRouter } from "./purchase/purchase-product.router";
 import { ConfigServer } from "./config/config";
 import { DataSource } from "typeorm";
 
@@ -21,7 +26,14 @@ class Server extends ConfigServer {
   }
 
   routers(): Array<express.Router> {
-    return [new userRouter().router];
+    return [
+      new userRouter().router,
+      new PurchaseRouter().router,
+      new ProductRouter().router,
+      new CustomerRouter().router,
+      new CategoryRouter().router,
+      new PurchaseProductRouter().router,
+    ];
   }
 
   async dbConnect(): Promise<DataSource | void> {
