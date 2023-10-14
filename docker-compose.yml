@@ -12,5 +12,16 @@ services:
       - "3306:3306"
     volumes:
       - ./mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
-
-  
+  api:
+    image: node:latest
+    restart: always
+    working_dir: /api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./:/api
+    env_file: 
+    - .env
+    depends_on: 
+     - mySQL
+    command: npm run start:dev

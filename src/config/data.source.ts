@@ -6,7 +6,7 @@ import { CustomerEntity } from "../customer/entities/customer.entity";
 import { PurchaseEntity } from "../purchase/entities/purchase.entity";
 import { ProductEntity } from "../product/entities/product.entity";
 import { CategoryEntity } from "../category/entities/category.entity";
-import { PurchaseProductsEntity } from "../purchase/entities/purchase-products.entity";
+import { PurchaseProductsEntity } from "../purchase/entities/purchase-product.entity";
 
 dotenv.config({
   path:
